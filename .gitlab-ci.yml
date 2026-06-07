@@ -1,0 +1,13 @@
+stages:
+    - composefile
+    - complete
+
+composefile-job:
+    stage: composefile
+    script:
+        - docker compose up -d
+
+complete-job:
+    stage: complete
+    script:
+        - echo "cicd completed"
