@@ -1,0 +1,32 @@
+name: Node.js CI
+
+# Trigger: run this on every push or pull request to main branch
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Get your code from the repo
+     - name: Checkout code
+       uses: actions/setup-node@v4
+
+
+       # Step 2: Set up Node.js
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version:'20'
+
+      # Step 3: Install dependencies
+    - name: install dependencies
+      run: npm install
+
+      # Step 4: Run your tests
+    - name: Run tests 
+      run: npm test   
