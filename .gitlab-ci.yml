@@ -1,0 +1,21 @@
+stages:
+    - composefile
+    - complete
+
+image: docker:latest
+
+services:
+  - docker:dind
+
+variables:
+  DOCKER_TLS_CERTDIR: ""
+
+composefile-job:
+    stage: composefile
+    script:
+        - docker compose up -d
+
+complete-job:
+    stage: complete
+    script:
+        - echo "cicd completed"
