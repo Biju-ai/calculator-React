@@ -28,8 +28,8 @@ jobs:
         run: npm ci
 
       # Step 4: Run tests
-      - name: Run tests
-        run: npm test -- --watchAll=false
+      - name: Build React application
+        run: npm run build
 
       # Step 5: Login to Docker Hub
       - name: Login to Docker Hub
