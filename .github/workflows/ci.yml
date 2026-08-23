@@ -42,4 +42,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: /calculator2:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/calculator2:latest
