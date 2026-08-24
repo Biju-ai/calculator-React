@@ -36,8 +36,9 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Build Docker image
-        run: docker build -t bijushrestha/calculator .
-
-      - name: Push Docker image
-        run: docker push bijushrestha/calculator
+      - name: Build and Push Docker Image
+        uses: docker/build-push-action@v6
+        with:
+         context: .
+         push: true 
+         tags: bijushrestha/calculator:latest
